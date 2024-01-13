@@ -7,15 +7,15 @@ class HashTable {
     set(key, value) {
         const index = this._hash(key);
         /**
-         [
-         [
-         ["",""],
-         ["", ""]
-         ],
-         [
-         ["", ""]
-         ]
-         ]
+             [
+                 [
+                     ["",""],
+                     ["", ""]
+                 ],
+                 [
+                    ["", ""]
+                 ]
+             ]
          **/
 
         if (this.table[index]) {
