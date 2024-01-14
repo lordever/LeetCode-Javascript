@@ -15,7 +15,7 @@
  * Input: nums = [1,1,1,3,3,4,3,2,4,2]
  * Output: true
  */
-var containsDuplicate = function (nums) {
+var containsDuplicate1 = function (nums) {
     const sortedNums = bubbleSort(nums);
     console.log('Sorted', sortedNums);
     for (let i = 0; i < sortedNums.length; i++) {
@@ -53,4 +53,40 @@ const bubbleSort = (arr) => {
     return arr;
 }
 
-console.log(containsDuplicate([1, 2, 3, 1]))
+console.log(containsDuplicate1([1, 2, 3, 1])) // Timeout and memory exceptions
+
+/**
+ @runtime - 98ms, Beats 32.16%
+ @memory - 54.28MB, Beats 58.66%
+ */
+var containsDuplicate2 = (nums) => {
+    const numsObj = {};
+
+    for (let i = 0; i < nums.length; i++) {
+        if (numsObj.hasOwnProperty(nums[i])) {
+            return true;
+        }
+
+        numsObj[nums[i]] = i;
+    }
+
+    return false;
+}
+
+/**
+ @runtime - 74ms, Beats 82.08%
+ @memory - 52.67MB, Beats 81.28%
+ */
+var containsDuplicateStandard = (nums) => {
+    const numsSet = new Set();
+
+    for (let i = 0; i < nums.length; i++) {
+        if (numsSet.has(nums[i])) {
+            return true;
+        }
+
+        numsSet.add(nums[i]);
+    }
+
+    return false;
+}
