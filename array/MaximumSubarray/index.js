@@ -59,7 +59,10 @@ var maxSubArrayIndexes = function (nums) {
         }
     }
 
-    return nums.slice(startIndex, endIndex + 1);
+    return {
+        max: globalMax,
+        period: nums.slice(startIndex, endIndex + 1)
+    };
 };
 
 console.log(maxSubArrayIndexes([-2,1,-3,4,-1,2,1,-5,4])); // [4,-1,2,1]
