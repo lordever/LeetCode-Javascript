@@ -38,3 +38,30 @@ var maxSubArray = function (nums) {
 
     return max;
 };
+
+var maxSubArrayIndexes = function (nums) {
+    let localMax = nums[0];
+    let globalMax = nums[0];
+    let startIndex = 0;
+    let endIndex = 0;
+
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] > localMax + nums[i]) {
+            localMax = nums[i]
+            startIndex = i;
+        } else {
+            localMax += nums[i];
+        }
+
+        if (localMax > globalMax) {
+            globalMax = localMax;
+            endIndex = i;
+        }
+    }
+
+    return nums.slice(startIndex, endIndex + 1);
+};
+
+console.log(maxSubArrayIndexes([-2,1,-3,4,-1,2,1,-5,4])); // [4,-1,2,1]
+console.log(maxSubArrayIndexes([1])); // [1]
+console.log(maxSubArrayIndexes([5,4,-1,7,8])); // [5,4,-1,7,8]
