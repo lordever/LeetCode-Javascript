@@ -54,4 +54,27 @@ var reverseWords = function (s) {
     return words.join(" ");
 }
 
-console.log(reverseWords());
+console.log(reverseWords("the sky is blue")); // "blue is sky the"
+
+/**
+ * @Pattern - Two pointers
+ * @runtime - Beats 95.31% of users with JavaScript
+ * @memory - Beats 14.30% of users with JavaScript
+ */
+var reverseWordsStandard = function (s) {
+    const words = s.trim().split(/\s+/);
+
+    let left = 0;
+    let right = words.length - 1;
+    while (left < right) {
+        const temp = words[left];
+        words[left] = words[right];
+        words[right] = temp;
+        left++;
+        right--;
+    }
+
+    return words.join(" ");
+}
+
+console.log(reverseWordsStandard("the sky is blue")); // "blue is sky the"
