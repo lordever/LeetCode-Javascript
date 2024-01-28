@@ -53,3 +53,22 @@ var removeDuplicates = function (nums) {
 let nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
 console.log(removeDuplicates(nums)); //4
 
+
+//String
+var reverseWordsStandard = function (s) {
+    const words = s.trim().split(/\s+/);
+
+    let left = 0;
+    let right = words.length - 1;
+    while (left < right) {
+        const temp = words[left];
+        words[left] = words[right];
+        words[right] = temp;
+        left++;
+        right--;
+    }
+
+    return words.join(" ");
+}
+
+console.log(reverseWordsStandard("the sky is blue")); // "blue is sky the"
