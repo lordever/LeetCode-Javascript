@@ -71,3 +71,24 @@ var reverseWordsStandard = function (s) {
 }
 
 console.log(reverseWordsStandard("the sky is blue")); // "blue is sky the"
+
+//Linked List
+var hasCycle = function (head) {
+    if (!head) {
+        return false;
+    }
+
+    let fast = head.next;
+    let slow = head;
+
+    while (fast && fast.next) {
+        if (fast === slow) {
+            return true;
+        }
+
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    return false;
+};
