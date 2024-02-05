@@ -15,7 +15,7 @@
  */
 
 /**
- * @Pattern - Two pointers
+ * @Pattern - Fast and Slow pointers
  * @runtime - Beats 91.65% of users with JavaScript
  * @memory - Beats 12.86% of users with JavaScript
  */
